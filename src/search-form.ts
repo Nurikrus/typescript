@@ -9,7 +9,12 @@ dtToday.setMonth(dtToday.getMonth() + 2);
 dtToday.setDate(0);
 let lastDay = (dtToday.getDate()).toString();
 let nextMonth = (dtToday.getMonth() + 2).toString();
+let monthOut = month
 
+if (Number(dayOut) > 31) {
+  dayOut = (Number(dayOut) - 31).toString();
+  monthOut = '0' + (Number(monthOut) + 1);
+}
 if (Number(nextMonth) > 11) {
   year++;
   nextMonth = '1';
@@ -26,7 +31,7 @@ if (Number(dayOut) < 10)
 
 let minDateIn = year + '-' + month + '-' + day;
 let maxDateIN = year + '-' + nextMonth + '-' + lastDay;
-let minDateOut = year + '-' + month + '-' + dayOut;
+let minDateOut = year + '-' + monthOut + '-' + dayOut;
 let maxDateOut = year + '-' + nextMonth + '-' + lastDay;
 console.log(minDateIn, maxDateIN, minDateOut, maxDateOut)
 
